@@ -1,0 +1,281 @@
+/* ==========================================================================
+   GLOBAL RESETS
+   NEW: Standardizing margins, padding, and box-sizing so elements 
+   don't behave unpredictably across different browsers.
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* CHANGED: Using clean, modern system fonts instead of complex font stacks */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    color: #ffffff;
+    /* NEW: Added a fallback dark background in case the image takes a moment to load */
+    background-color: #0f0f13; 
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   BACKGROUND
+   ========================================================================== */
+#background-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    /* CHANGED: Darkened the background image heavily. 
+       Industry-ready apps never let background images overpower the text. */
+    filter: brightness(0.25); 
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION
+   ========================================================================== */
+header {
+    /* CHANGED: Replaced arbitrary breaks with clean CSS padding */
+    padding: 40px 20px 20px;
+    text-align: center;
+}
+
+#title {
+    /* CHANGED: Removed the pink/magenta 100px text. 
+       Using a sleek white uppercase design with a subtle glow. */
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+#nav-bar {
+    /* CHANGED: Centers the navigation dynamically */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+nav ul {
+    /* CHANGED: Transformed the nav list into a modern floating "pill" bar 
+       using a glassmorphism effect (frosted glass). */
+    display: flex;
+    list-style-type: none;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 15px;
+    border-radius: 50px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav a {
+    /* CHANGED: Removed the 20% border-radius and bottom borders.
+       Made the links look like clean, clickable tabs. */
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #a9a9b3;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    /* NEW: Added a subtle hover state to the navigation links */
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   MAIN LAYOUT & SEARCH COMPONENT
+   ========================================================================== */
+main {
+    /* NEW: Restricts the maximum width of the content so it doesn't stretch 
+       awkwardly on massive ultrawide monitors. */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+#catchline {
+    /* CHANGED: Replaced the lime green text with a modern cyan accent color */
+    color: #00d2ff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+#search {
+    /* CHANGED: Wrapped the entire search area in a sleek, centered frosted glass card */
+    background: rgba(20, 20, 25, 0.7);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: inline-block;
+    width: 100%;
+    max-width: 550px;
+}
+
+#labelsearch {
+    /* CHANGED: Removed the purple background. Made it a clean, blocked label. */
+    display: block;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+#searchbar {
+    /* NEW: Completely restyled the input field to look like a modern web app */
+    width: 100%;
+    padding: 14px 20px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+#searchbar::placeholder {
+    color: #888;
+}
+
+#searchbar:focus {
+    /* NEW: Adds a glowing cyan border when the user clicks inside the search bar */
+    border-color: #00d2ff;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+button {
+    /* NEW: Unified the base styling for all buttons */
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+#searchbtn {
+    /* CHANGED: Replaced purple/yellow with a solid cyan accent button */
+    background-color: #00d2ff;
+    color: #000000;
+}
+
+#searchbtn:hover {
+    background-color: #00b8e6;
+    transform: translateY(-2px);
+}
+
+#loadbtn {
+    /* CHANGED: Made the secondary button a "ghost" button (outline only) 
+       to establish visual hierarchy. */
+    background-color: transparent;
+    color: #00d2ff;
+    border: 1px solid #00d2ff;
+}
+
+#loadbtn:hover {
+    background-color: rgba(0, 210, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+#status, #counter {
+    /* CHANGED: Removed the purple background. Made these subtle subtexts. */
+    color: #a9a9b3;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    background: none;
+}
+
+/* ==========================================================================
+   MOVIE CARDS
+   ========================================================================== */
+#movie-card {
+    /* (Kept from the previous fix, slightly adjusted margins) */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.movie-card {
+    /* CHANGED: Refined the card design to fit the new dark glassmorphism theme */
+    position: relative;
+    width: 220px;            
+    border-radius: 12px; 
+    overflow: hidden;        
+    cursor: pointer;
+    background-color: rgba(30, 30, 35, 0.8); 
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; 
+    padding-bottom: 15px; 
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.movie-card:hover {
+    /* CHANGED: Updated the hover effect. Instead of just zooming, 
+       it now lifts up smoothly and casts a cyan glow shadow. */
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.15); 
+    z-index: 10;             
+}
+
+.movie-poster {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.movie-card h3 {
+    margin: 15px 15px 5px 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    /* NEW: If a movie title is too long, it will add "..." instead 
+       of breaking the layout into three lines. */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.movie-card h5 {
+    margin: 2px 15px 0;
+    font-size: 0.85rem;
+    color: #999;
+    font-weight: 400;
+}
+
+.empty-msg {
+    /* NEW: Formats the "Movie not found" text cleanly */
+    color: #ff4757;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+}

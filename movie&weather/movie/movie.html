@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movieteria</title>
+    <link rel="stylesheet" href="moviecss.css">
+</head>
+<body>
+    <header>
+    <h1 id="title">Movieteria</h1><br>
+     <nav id="nav-bar">
+            <ul>
+                <li> <a href="home.html">Home page</a></li>
+                <li> <a href="movie.html">Search movie</a></li>
+                <li> <a href="weather.html">Check weather</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+    
+
+    <main>
+        <img src="movieimg.avif" alt="backgroung image" id="background-image">
+        
+        <section class="container">
+            <h3 id="catchline">Ready  for your next movie?</h3>
+        
+            <div id="search">
+                <label id="labelsearch" for="searchbar">Search your Next Movie here</label> <br>
+                <input type="text" id="searchbar" placeholder="Search here">
+                <button id="searchbtn">Search</button>
+                 <button id="loadbtn"></button>
+                <p id="status">Click Search to Find movie</p>
+                <p id="counter"></p>
+
+            </div>
+        </section>
+
+        <section id="movie-card">
+
+        </section>
+
+    </main>
+
+    
+    <footer>
+
+    </footer>
+    <script src="moviejs.js"></script>
+</body>
+</html>

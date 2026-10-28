@@ -1,0 +1,186 @@
+/* ==========================================================================
+   GLOBAL RESETS
+   NEW: Standardizing margins, padding, and box-sizing across the page.
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* CHANGED: Replaced mixed font families with a clean, modern system font */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    color: #ffffff;
+    background-color: #0f0f13; 
+    line-height: 1.6;
+    /* NEW: Ensures the body takes up at least the full viewport height */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   BACKGROUND
+   ========================================================================== */
+#thumbnail {
+    width: 100vw;  
+    height: 100vh; 
+    object-fit: cover; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: -1;  
+    /* CHANGED: Darkened the background image heavily so the white text is readable */
+    filter: brightness(0.3) blur(2px); 
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION
+   ========================================================================== */
+header {
+    /* NEW: Added spacing around the header to give it room to breathe */
+    padding: 40px 20px 20px;
+    text-align: center;
+}
+
+#title { 
+    /* CHANGED: Removed the heavy background box and replaced it with clean, 
+       glowing typography to match the movie page. */
+    width: fit-content;
+    margin: 0 auto 25px auto; 
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    background: none;
+    backdrop-filter: none;
+}
+
+#nav-bar {
+    /* NEW: Centers the navigation dynamically */
+    display: flex;
+    justify-content: center;
+}
+
+nav ul { 
+    /* CHANGED: Matched the modern floating "pill" bar from the movie page */
+    display: flex; 
+    list-style-type: none;  
+    gap: 10px; 
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 15px;
+    border-radius: 50px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav a {  
+    /* CHANGED: Updated links to look like clean, clickable tabs to match the movie page */
+    text-decoration: none; 
+    padding: 10px 20px;
+    color: #a9a9b3;
+    font-weight: 500; 
+    font-size: 1rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    border-bottom: none;
+    background: transparent;
+    backdrop-filter: none;
+    font-family: inherit;
+    font-style: normal;
+}
+
+nav a:hover {
+    /* NEW: Subtle hover state for navigation */
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   MAIN CONTENT & CARDS
+   ========================================================================== */
+main {
+    /* NEW: Pushes the footer down and centers the main content */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#homediv {
+    /* CHANGED: Removed the awkward left margin and hardcoded top margin. 
+       Used flexbox wrapping to make it responsive on smaller screens. */
+    display: flex;
+    flex-wrap: wrap;
+    margin: 80px auto 40px auto;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    max-width: 1100px;
+    padding: 0 20px;
+}
+
+.innerdiv {
+    /* CHANGED: Upgraded the cards to a sleek glassmorphism design. 
+       Reduced the border-radius from 50px to 16px for a more professional look. */
+    flex: 1 1 300px; 
+    background: rgba(20, 20, 25, 0.7);
+    padding: 30px 25px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    /* CHANGED: Shortened the transition duration for snappier feedback */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.innerdiv:hover {
+    /* CHANGED: Reduced the hover lift from -40px (which is too extreme) to -8px. 
+       Added a subtle cyan glow shadow. */
+    transform: translateY(-15px);
+    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.15);
+}
+
+.innerdiv h3 {
+    /* CHANGED: Replaced the black heading color with the cyan accent color */
+    color: #00d2ff;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.innerdiv p {
+    /* NEW: Added white-space: pre-line so the address, email, and phone number 
+       in your HTML automatically drop to new lines without needing <br> tags. */
+    color: #cccccc;
+    font-size: 1rem;
+    white-space: pre-line; 
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   REPORT BUTTON 
+   ========================================================================== */
+.innerdiv a {
+    /* NEW: Styled the "REPORT" link to look like a modern call-to-action button */
+    display: inline-block;
+    margin-top: auto; /* Pushes the button to the bottom of the card */
+    padding: 10px 24px;
+    background-color: transparent;
+    color: #00d2ff;
+    border: 1px solid #00d2ff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
